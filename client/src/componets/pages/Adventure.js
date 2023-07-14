@@ -18,12 +18,8 @@ const App = () => {
   const [map, setMap] = useState(null);
   const [markers, setMarkers] = useState([]);
 
-  const [saveAdventure] = useMutation(SAVE_ADVENTURE);
-  useEffect(() => {
-    if (zipCode) {
-      handleSearch();
-    }
-  }, []);
+
+
   useEffect(() => {
     const initializeMap = () => {
       const newMap = new mapboxgl.Map({
@@ -115,6 +111,13 @@ const App = () => {
       console.error("Error searching for adventures:", error);
     }
   };
+
+  const [saveAdventure] = useMutation(SAVE_ADVENTURE);
+  useEffect(() => {
+    if (zipCode) {
+      handleSearch();
+    }
+  }, [handleSearch, zipCode]);
 
   const handleSaveAdventure = async (adventure) => {
     try {

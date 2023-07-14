@@ -16,11 +16,8 @@ const App = () => {
   const [markers, setMarkers] = useState([]);
 
   const [saveRestaurant] = useMutation(SAVE_RESTAURANT);
-  useEffect(() => {
-    if (zipCode) {
-      handleSearch();
-    }
-  }, []);
+
+
   useEffect(() => {
     const initializeMap = () => {
       const newMap = new mapboxgl.Map({
@@ -109,6 +106,12 @@ const App = () => {
       console.error("Error searching for restaurants:", error);
     }
   };
+
+  useEffect(() => {
+    if (zipCode) {
+      handleSearch();
+    }
+  }, [handleSearch, zipCode]);
 
   const handleSaveRestaurant = async (restaurant) => {
     try {
