@@ -58,7 +58,7 @@ const App = () => {
         setMarkers((prevMarkers) => [...prevMarkers, marker]);
       });
     }
-  }, [map, restaurants]);
+  }, [map, restaurants, markers]);
 
   useEffect(() => {
     if (map) {

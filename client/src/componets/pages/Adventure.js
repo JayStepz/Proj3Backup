@@ -59,7 +59,7 @@ const App = () => {
         setMarkers((prevMarkers) => [...prevMarkers, marker]);
       });
     }
-  }, [map, adventures]);
+  }, [map, adventures, markers]);
 
   useEffect(() => {
     if (map) {
