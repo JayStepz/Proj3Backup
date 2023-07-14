@@ -16,11 +16,7 @@ const App = () => {
 
   const [saveVenue] = useMutation(SAVE_VENUE);
 
-  useEffect(() => {
-    if (zipCode) {
-      handleSearch();
-    }
-  }, [handleSearch, zipCode]);
+
 
   useEffect(() => {
     const initializeMap = () => {
@@ -113,6 +109,12 @@ const App = () => {
       console.error("Error searching for activities:", error);
     }
   };
+
+  useEffect(() => {
+    if (zipCode) {
+      handleSearch();
+    }
+  }, [handleSearch, zipCode]);
 
   const handleSaveActivity = async (activity) => {
     try {
