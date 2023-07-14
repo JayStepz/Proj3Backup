@@ -20,7 +20,7 @@ const App = () => {
     if (zipCode) {
       handleSearch();
     }
-  }, []);
+  }, [handleSearch, zipCode]);
 
   useEffect(() => {
     const initializeMap = () => {
@@ -61,7 +61,7 @@ const App = () => {
         setMarkers((prevMarkers) => [...prevMarkers, marker]);
       });
     }
-  }, [map, activities]);
+  }, [map, activities, markers]);
 
   useEffect(() => {
     if (map) {
